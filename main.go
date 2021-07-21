@@ -5,8 +5,11 @@ import (
 	_ "go-admin/router"
 
 	"github.com/gogf/gf/frame/g"
+	"github.com/gogf/swagger"
 )
 
 func main() {
-	g.Server().Run()
+	s := g.Server()
+	s.Plugin(&swagger.Swagger{})
+	s.Run()
 }

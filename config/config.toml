@@ -3,11 +3,11 @@
 	Address     = ":8199"
 	ServerRoot  = "public"
 	ServerAgent = "gf-app"
-	LogPath     = "/tmp/log/gf-app/server"
+	LogPath     = "./runtime/log/server"
 
 # Logger.
 [logger]
-    Path        = "/tmp/log/gf-app"
+    Path        = "./runtime/log/app"
     Level       = "all"
     Stdout      = true
 
@@ -19,10 +19,18 @@
 
 # Database.
 [database]
-    link  = "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    link  = "mysql:root:root@tcp(127.0.0.1:3306)/go-admin"
     debug = true
     # Database logger.
     [database.logger]
-        Path   = "/tmp/log/gf-app/sql"
+        Path   = "./runtime/log/sql"
         Level  = "all"
         Stdout = true
+
+[gfcli]
+    [[gfcli.gen.dao]]
+        link  = "mysql:root:root@tcp(127.0.0.1:3306)/go-admin"
+
+[api]
+    Key = "LV4ZJZK0AAyUurZ0vqud"
+    ExpiredAt = 86400
